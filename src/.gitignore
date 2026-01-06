@@ -15,4 +15,4 @@ yarn-error.log
 /.vscode
 
 # MySQL の実データも Git に入れない
-mysql/data/
+docker/mysql/data/
