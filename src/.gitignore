@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# MySQL の実データも Git に入れない
+mysql/data/
