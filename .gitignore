@@ -1,0 +1,5 @@
+# Docker MySQL data
+docker/mysql/data/
+
+# 念のため
+docker/mysql/data/*
