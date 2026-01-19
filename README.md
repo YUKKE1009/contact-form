@@ -44,9 +44,9 @@ php artisan db:seed
 ```
 
 ## 環境開発
-・お問い合わせ画面：http://localhost/
+・お問い合わせ画面:http://localhost/
 
-・ユーザー登録：http://localhost/register
+・ユーザー登録:http://localhost/register
 
 ・phpMyAdmin:http://localhost:8080/
 
@@ -55,7 +55,7 @@ php artisan db:seed
 
 ・Laravel 8.83.8
 
-・MySQL 8.0.44
+・MySQL 8.0
 
 ・nginx 1.21.1
 
