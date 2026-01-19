@@ -28,8 +28,8 @@ DB_PASSWORD=laravel_pass
 ```
 
 ## 環境開発
-・お問い合わせ画面：
-・ユーザー登録：
+・お問い合わせ画面：http://localhost/
+・ユーザー登録：http://localhost/register
 ・phpMyAdmin:http://localhost:8080/
 
 ## 使用技術（実行環境）

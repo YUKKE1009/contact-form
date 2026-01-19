@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContactFactory extends Factory
 {
+    // コンストラクタで日本語ロケールの Faker をセット
+    public function __construct($count = null, $factoryName = null)
+    {
+        parent::__construct($count, $factoryName);
+        $this->faker = \Faker\Factory::create('ja_JP');
+    }
+
     public function definition()
     {
         return [
@@ -17,7 +24,7 @@ class ContactFactory extends Factory
             'tel'        => $this->faker->phoneNumber,
             'address'    => $this->faker->address,
             'building'   => $this->faker->optional()->secondaryAddress,
-            'detail'     => $this->faker->text(200),
+            'detail'      => $this->faker->realText(200, 2), // 日本語の文章
         ];
     }
 }
