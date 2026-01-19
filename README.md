@@ -4,10 +4,16 @@ Laravelを使って作成したお問い合わせ管理アプリです。
 
 ## 環境構築
 ### Dockerビルド
-git@github.com:YUKKE1009/contact-form.git
+```bash
+# リポジトリをクローン
+git clone git@github.com:YUKKE1009/contact-form.git
+# ディレクトリ移動
 cd contact-form
+# Dockerビルド＆起動
 docker-compose up -d --build
+# VSCodeで開く
 code .
+```
 
 ### Laravel環境構築
 ```bash
