@@ -17,12 +17,12 @@ code .
 
 ### Laravel環境構築
 ```bash
+# コンテナ内に入る
 docker-compose exec php bash
+# 依存パッケージをインストール
 composer install
-cp .env.example .env  # 環境変数を適宜変更
-php artisan key:generate
-php artisan migrate
-php artisan db:seed
+# 環境変数ファイルを作成
+cp .env.example .env
 ```
 
 [.envファイル]
@@ -33,6 +33,13 @@ DB_PORT=3306
 DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
+```
+
+### Laravel初期化
+```bash
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
 ```
 
 ## 環境開発
