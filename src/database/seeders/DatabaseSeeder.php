@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // まずカテゴリの固定データを投入
+        $this->call([
+            CategorySeeder::class,
+        ]);
+
+        // 次に contacts テーブルにダミーデータを35件作成
+        \App\Models\Contact::factory(35)->create();
     }
 }
