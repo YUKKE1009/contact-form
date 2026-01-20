@@ -42,12 +42,23 @@ body {
 .header__logout-btn {
     position: absolute;
     right: 20px;
-    text-decoration: none;
-    color: var(--color-primary);
+    top: 50%;
+    /* 中央寄せ */
+    transform: translateY(-50%);
+
+    background: #fff;
+    /* 背景白 */
+    cursor: pointer;
     border: 1px solid var(--color-border);
     padding: 5px 15px;
-    background: #fff;
+    color: var(--color-primary);
     font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header__logout-btn:hover {
+    background-color: var(--color-bg-light);
 }
 
 /* メインエリア */
@@ -75,6 +86,7 @@ body {
 
 .search-form__input,
 .search-form__select {
+    background-color: var(--color-bg-light);
     padding: 10px;
     border: 1px solid var(--color-border);
     color: #ccc;
@@ -112,7 +124,7 @@ body {
 }
 
 .btn-export {
-    background-color: var(--color-bg-light);
+    background-color: #FAF0E6;
     border: none;
     padding: 8px 15px;
     color: var(--color-text);
@@ -164,4 +176,97 @@ body {
     padding: 5px 15px;
     cursor: pointer;
     font-size: 12px;
+}
+
+/* 巨大な矢印を小さくする */
+.pagination svg {
+    width: 20px;
+    height: auto;
+}
+
+/* 不要なテキスト（Showing...）を消してスッキリさせる場合 */
+.pagination nav div:first-child {
+    display: none;
+}
+
+/* ページネーション全体の配置調整 */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+/* リンクのデザインをあなたのCSSに合わせる */
+.pagination a, .pagination span {
+    border: 1px solid var(--color-border);
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: #fff;
+    font-size: 14px;
+}
+
+/* アクティブなページの背景色 */
+.pagination .active span, 
+.pagination span[aria-current="page"] {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* ページネーション全体のコンテナ */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+/* リンク全体のリスト構造をリセット */
+.pagination nav {
+    display: flex;
+    align-items: center;
+}
+
+.pagination nav div {
+    display: flex;
+}
+
+/* 謎の茶色の四角や、不要な文字（Showing...）を非表示にする */
+.pagination nav div p {
+    display: none;
+}
+
+/* 数字や矢印のボタン共通スタイル */
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px;
+    height: 35px;
+    padding: 0 5px;
+    margin: 0;
+    border: 1px solid var(--color-border);
+    /* 枠線を一本に統合 */
+    background-color: #fff;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 数字同士が重なる部分の枠線を調整（二重線を防ぐ） */
+.pagination a,
+.pagination span {
+    margin-left: -1px;
+}
+
+/* 現在表示中の数字（アクティブ）の背景色 */
+.pagination span[aria-current="page"],
+.pagination .active {
+    background-color: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+/* ホバーした時 */
+.pagination a:hover {
+    background-color: var(--color-bg-light);
 }

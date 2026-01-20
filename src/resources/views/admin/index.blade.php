@@ -14,7 +14,10 @@
     <header class="header">
         <div class="header__inner">
             <h1 class="header__logo">FashionablyLate</h1>
-            <a href="#" class="header__logout-btn">logout</a>
+            <form action="/logout" method="post" class="header__form">
+                @csrf
+                <button type="submit" class="header__logout-btn">logout</button>
+            </form>
         </div>
     </header>
 
@@ -26,6 +29,9 @@
             <input type="text" name="keyword" class="search-form__input search-form__input--text" placeholder="名前やメールアドレスを入力してください">
             <select name="gender" class="search-form__select">
                 <option value="">性別</option>
+                <option value="1">男性</option>
+                <option value="2">女性</option>
+                <option value="3">その他</option>
             </select>
 
             <select name="category_id" class="search-form__select">
@@ -44,11 +50,7 @@
             <button class="btn-export">エクスポート</button>
             {{-- ページネーション --}}
             <div class="pagination">
-                <a href="#" class="pagination__link">&lt;</a>
-                <a href="#" class="pagination__link pagination__link--active">1</a>
-                <a href="#" class="pagination__link">2</a>
-                <a href="#" class="pagination__link">3</a>
-                <a href="#" class="pagination__link">&gt;</a>
+                {{ $contacts->appends(request()->query())->links('pagination::bootstrap-4') }}
             </div>
         </div>
 
@@ -62,7 +64,7 @@
             </tr>
             @foreach($contacts as $contact)
             <tr class="admin-table__row">
-                <td class="admin-table__item">{{ $contact->last_name }}　{{ $contact->first_name }}</td>
+                <td class="admin-table__item">{{ $contact->last_name }} {{ $contact->first_name }}</td>
                 <td class="admin-table__item">
                     {{ $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他') }}
                 </td>
