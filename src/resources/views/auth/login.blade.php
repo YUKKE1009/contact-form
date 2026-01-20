@@ -1,31 +1,51 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('title', 'Login')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | FashionablyLate</title>
+    {{-- 土台のリセットCSS --}}
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    {{-- 今回作成する確認画面専用CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
+    {{-- フォント設定 --}}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
-@section('header-nav')
-<ul class="header-nav">
-    <li class="header-nav__item">
-        <a class="header-nav__link" href="/register">register</a>
-    </li>
-</ul>
-@endsection
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">FashionablyLate</h1>
+            <div class="header__link">
+                <a href="/register" class="header__link-button">register</a>
+            </div>
+        </div>
+    </header>
 
-@section('content')
-<div class="auth-container">
-    <h2 class="page-title">Login</h2>
-    <form action="/login" method="POST">
-        @csrf
-        <div class="form-group">
-            <label class="form-label">メールアドレス</label>
-            <input type="email" class="form-input" name="email" placeholder="例: test@example.com">
+    <main class="auth-content">
+        <h2 class="auth-content__title">Login</h2>
+        <div class="auth-form">
+            <form action="/login" method="post">
+                @csrf
+                <div class="form__group">
+                    <label class="form__label">メールアドレス</label>
+                    <div class="form__input">
+                        <input type="email" name="email" placeholder="例: test@example.com">
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">パスワード</label>
+                    <div class="form__input">
+                        <input type="password" name="password" placeholder="例: coachtech1106">
+                    </div>
+                </div>
+                <div class="form__button">
+                    <button type="submit" class="form__button-submit">ログイン</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label class="form-label">パスワード</label>
-            <input type="password" class="form-input" name="password" placeholder="例: coachtech1106">
-        </div>
-        <div class="form-button-area">
-            <button type="submit" class="btn-submit">ログイン</button>
-        </div>
-    </form>
-</div>
-@endsection
+    </main>
+</body>
+
+</html>

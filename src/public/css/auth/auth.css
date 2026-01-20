@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+:root {
+    --color-primary: #8b7969;
+    --color-text: #605348;
+    --color-bg-auth: #f2eee9;
+    /* 認証画面特有のベージュ背景 */
+    --color-input-bg: #f4f4f4;
+    --color-border: #e0dfde;
+    --font-en: 'Playfair Display', serif;
+    --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+/* 基本設定 */
+body {
+    font-family: var(--font-jp);
+    color: var(--color-text);
+    background-color: var(--color-bg-auth);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ヘッダー */
+.header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header__logo {
+    font-family: var(--font-en);
+    font-size: 30px;
+    color: var(--color-primary);
+    font-weight: 400;
+}
+
+/* 右上の切り替えボタン */
+.header__link {
+    position: absolute;
+    right: 20px;
+}
+
+.header__link-button {
+    text-decoration: none;
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 5px 20px;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* メインコンテンツ */
+.auth-content {
+    padding: 60px 20px;
+}
+
+.auth-content__title {
+    font-family: var(--font-en);
+    text-align: center;
+    font-size: 26px;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* 白いカード部分 */
+.auth-form {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 50px 80px;
+    border-radius: 4px;
+}
+
+/* 入力グループ */
+.form__group {
+    margin-bottom: 30px;
+}
+
+.form__label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.form__input input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--color-input-bg);
+    border: none;
+    border-radius: 2px;
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+/* ボタン */
+.form__button {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.form__button-submit {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.form__button-submit:hover {
+    opacity: 0.8;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 768px) {
+    .auth-form {
+        padding: 40px 30px;
+    }
+}

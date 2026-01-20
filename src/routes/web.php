@@ -13,7 +13,7 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [ContactController::class, 'index']);          // PG01 入力画面
 Route::post('/confirm', [ContactController::class, 'confirm']); // PG02 確認画面
 Route::post('/thanks', [ContactController::class, 'store']);    // PG03 保存 → サンクス
-
+Route::get('/thanks', [ContactController::class, 'thanks']);         // サンクス画面表示
 /*
 |--------------------------------------------------------------------------
 | 管理画面
