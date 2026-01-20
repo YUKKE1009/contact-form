@@ -26,7 +26,7 @@
     <main class="auth-content">
         <h2 class="auth-content__title">Register</h2>
         <div class="auth-form">
-            <form action="/register" method="post">
+            <form action="/register" method="post" novalidate>
                 @csrf
                 {{-- お名前 --}}
                 <div class="form__group">

@@ -12,7 +12,7 @@ class ContactController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('contact.form', compact('categories'));
+        return view('contact.contact_form', compact('categories'));
     }
 
     // 確認画面
@@ -22,7 +22,7 @@ class ContactController extends Controller
         // 電話番号を結合して一つの 'tel' として扱う
         $inputs['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
 
-        return view('contact.confirm', compact('inputs'));
+        return view('contact.contact_confirm', compact('inputs'));
     }
     // 保存処理
     public function store(Request $request) // 保存時はRequest(バリデーション済みのデータが来るため)
@@ -52,6 +52,6 @@ class ContactController extends Controller
     
     public function thanks()
     {
-        return view('contact.thanks');
+        return view('contact.contact_thanks');
     }
 }

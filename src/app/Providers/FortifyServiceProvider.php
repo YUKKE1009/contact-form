@@ -51,7 +51,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         // ログインのバリデーションメッセージをカスタマイズ
         Fortify::authenticateUsing(function (LoginRequest $request) {
-            // 1. バリデーションの実行（シンプルに！）
+            // 1. バリデーションの実行
             $validator = Validator::make($request->all(), [
                 'email'    => ['required', 'email:filter'],
                 'password' => ['required'],

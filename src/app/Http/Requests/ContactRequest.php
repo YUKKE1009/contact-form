@@ -14,10 +14,10 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'last_name'   => ['required'],
-            'first_name'  => ['required'],
+            'last_name'   => ['required', 'string', 'max:8'],
+            'first_name'  => ['required', 'string', 'max:8'],
             'gender'      => ['required'],
-            'email'       => ['required', 'email'],
+            'email'       => ['required', 'email:filter'],
             // 電話番号が3つに分かれている想定（tel1, tel2, tel3）
             'tel1'        => ['required', 'numeric', 'digits_between:1,5'],
             'tel2'        => ['required', 'numeric', 'digits_between:1,5'],
@@ -32,8 +32,13 @@ class ContactRequest extends FormRequest
     {
         return [
             // 1. お名前
-            'last_name.required'   => '姓を入力してください',
-            'first_name.required'  => '名を入力してください',
+            'last_name.required' => '姓を入力してください',
+            'last_name.string'   => '姓を文字列で入力してください',
+            'last_name.max'      => '姓は8文字以内で入力してください',
+
+            'first_name.required' => '名を入力してください',
+            'first_name.string'   => '名を文字列で入力してください',
+            'first_name.max'      => '名は8文字以内で入力してください',
 
             // 2. 性別
             'gender.required'      => '性別を選択してください',

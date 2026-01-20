@@ -26,7 +26,6 @@
         <div class="confirm-content">
             <h2 class="page-title">Confirm</h2>
 
-            {{-- フォーム送信先は適宜調整してください --}}
             <form action="/thanks" method="post" class="form">
                 @csrf
                 <table class="confirm-table">

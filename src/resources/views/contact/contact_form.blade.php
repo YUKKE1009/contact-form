@@ -28,7 +28,7 @@
         <div class="contact-form">
             <h2 class="page-title">Contact</h2>
 
-            <form action="/confirm" method="post" class="form">
+            <form action="/confirm" method="post" class="form" novalidate>
                 @csrf
 
                 @if ($errors->any())
