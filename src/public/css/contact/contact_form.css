@@ -261,3 +261,11 @@ textarea {
         gap: 15px;
     }
 }
+
+/* すべての入力欄のプレースホルダーを濃くする場合 */
+input::placeholder,
+textarea::placeholder {
+    color: #BCB09C;
+    opacity: 1;
+}
+
