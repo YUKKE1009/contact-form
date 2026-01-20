@@ -28,24 +28,46 @@
         <div class="auth-form">
             <form action="/register" method="post">
                 @csrf
+                {{-- お名前 --}}
                 <div class="form__group">
                     <label class="form__label">お名前</label>
                     <div class="form__input">
-                        <input type="text" name="name" placeholder="例: 山田 太郎">
+                        <input type="text" name="name" placeholder="例: 山田 太郎" value="{{ old('name') }}">
+                    </div>
+                    {{-- エラー表示エリア --}}
+                    <div class="form__error">
+                        @error('name')
+                        <p style="color: red;">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
+
+                {{-- メールアドレス --}}
                 <div class="form__group">
                     <label class="form__label">メールアドレス</label>
                     <div class="form__input">
-                        <input type="email" name="email" placeholder="例: test@example.com">
+                        <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
+                    </div>
+                    <div class="form__error">
+                        @error('email')
+                        <p style="color: red;">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
+
+                {{-- パスワード --}}
                 <div class="form__group">
                     <label class="form__label">パスワード</label>
                     <div class="form__input">
                         <input type="password" name="password" placeholder="例: coachtech1106">
                     </div>
+                    <div class="form__error">
+                        @error('password')
+                        <p style="color: red;">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
+
                 <div class="form__button">
                     <button type="submit" class="form__button-submit">登録</button>
                 </div>

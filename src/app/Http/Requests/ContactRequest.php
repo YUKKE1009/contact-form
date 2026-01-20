@@ -19,9 +19,7 @@ class ContactRequest extends FormRequest
             'gender'      => ['required'],
             'email'       => ['required', 'email'],
             // 電話番号が3つに分かれている想定（tel1, tel2, tel3）
-            // tel1 に「tel2とtel3も必須だよ」という役割を持たせる
             'tel1'        => ['required', 'numeric', 'digits_between:1,5'],
-            // tel2とtel3は、空の時だけエラーを出すが、メッセージは「空（表示しない）」にする
             'tel2'        => ['required', 'numeric', 'digits_between:1,5'],
             'tel3'        => ['required', 'numeric', 'digits_between:1,5'],
             'address'     => ['required'],

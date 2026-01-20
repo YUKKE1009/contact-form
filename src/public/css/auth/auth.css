@@ -129,3 +129,17 @@ body {
         padding: 40px 30px;
     }
 }
+
+/* エラーメッセージのスタイル */
+.form__error {
+    height: 20px;
+    /* エラーがない時も高さを確保してガタつきを防ぐ */
+    margin-top: 5px;
+}
+
+.form__error p {
+    color: #ff0000;
+    /* 要件の赤色 */
+    font-size: 13px;
+    margin: 0;
+}

@@ -24,16 +24,3 @@ Route::get('/search', [AdminController::class, 'search']);     // PG05 検索
 Route::get('/reset', [AdminController::class, 'reset']);       // PG06 検索リセット
 Route::post('/delete', [AdminController::class, 'destroy']);   // PG07 削除
 Route::get('/export', [AdminController::class, 'export']);     // PG11 エクスポート
-
-/*
-|--------------------------------------------------------------------------
-| 認証
-|--------------------------------------------------------------------------
-*/
-Route::get('/register', [AuthController::class, 'showRegister']); // PG08 登録画面
-Route::post('/register', [AuthController::class, 'register']);   // 登録処理
-
-Route::get('/login', [AuthController::class, 'showLogin']);       // PG09 ログイン画面
-Route::post('/login', [AuthController::class, 'login']);          // ログイン処理
-
-Route::post('/logout', [AuthController::class, 'logout']);        // PG10 ログアウト（画面なし）
