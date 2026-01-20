@@ -1,87 +1,132 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('title', 'Contact')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | FashionablyLate</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/contact/contact_form.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
-@section('content')
-<div class="form-container">
-    <h2 class="form-title">Contact</h2>
 
-    {{-- バリデーションエラー --}}
-    @if ($errors->any())
-    <div class="form-errors">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+<body>
 
-    {{-- 入力フォーム --}}
-    <form action="/confirm" method="POST" class="form">
-        @csrf
-
-        {{-- カテゴリー --}}
-        <div class="form__item">
-            <label for="category">カテゴリー</label>
-            <select name="category_id" id="category">
-                <option value="">選択してください</option>
-                @foreach ($categories as $category)
-                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                    {{ $category->name }}
-                </option>
-                @endforeach
-            </select>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">FashionablyLate</h1>
         </div>
+    </header>
 
-        {{-- 名前 --}}
-        <div class="form__item">
-            <label for="first_name">姓</label>
-            <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}">
+    <main class="main">
+        <div class="contact-form">
+            <h2 class="page-title">Contact</h2>
+
+            <form action="#" method="post" class="form">
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>お名前<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input form__input--name">
+                        <input type="text" name="lastname" placeholder="例: 山田">
+                        <input type="text" name="firstname" placeholder="例: 太郎">
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>性別<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input form__input--radio">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" checked> <span>男性</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female"> <span>女性</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="other"> <span>その他</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>メールアドレス<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input">
+                        <input type="email" name="email" placeholder="例: test@example.com">
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>電話番号<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input form__input--tel">
+                        <input type="tel" name="tel1" placeholder="080">
+                        <span class="hyphen">-</span>
+                        <input type="tel" name="tel2" placeholder="1234">
+                        <span class="hyphen">-</span>
+                        <input type="tel" name="tel3" placeholder="5678">
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>住所<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input">
+                        <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3">
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>建物名</label>
+                    </div>
+                    <div class="form__input">
+                        <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101">
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <div class="form__label">
+                        <label>お問い合わせの種類<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input">
+                        <div class="select-wrapper">
+                            <select name="type">
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="product">商品について</option>
+                                <option value="delivery">発送について</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__group form__group--top">
+                    <div class="form__label">
+                        <label>お問い合わせ内容<span class="form__required">※</span></label>
+                    </div>
+                    <div class="form__input">
+                        <textarea name="content" rows="5" placeholder="お問い合わせ内容をご記載ください"></textarea>
+                    </div>
+                </div>
+
+                <div class="form__button">
+                    <button type="submit">確認画面</button>
+                </div>
+
+            </form>
         </div>
+    </main>
 
-        <div class="form__item">
-            <label for="last_name">名</label>
-            <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}">
-        </div>
+</body>
 
-        {{-- 性別 --}}
-        <div class="form__item">
-            <label>性別</label>
-            <label><input type="radio" name="gender" value="男性" {{ old('gender') == '男性' ? 'checked' : '' }}> 男性</label>
-            <label><input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}> 女性</label>
-        </div>
-
-        {{-- メール --}}
-        <div class="form__item">
-            <label for="email">メール</label>
-            <input type="email" name="email" id="email" value="{{ old('email') }}">
-        </div>
-
-        {{-- 電話 --}}
-        <div class="form__item">
-            <label for="tel">電話番号</label>
-            <input type="tel" name="tel" id="tel" value="{{ old('tel') }}">
-        </div>
-
-        {{-- 住所 --}}
-        <div class="form__item">
-            <label for="address">住所</label>
-            <input type="text" name="address" id="address" value="{{ old('address') }}">
-        </div>
-
-        <div class="form__item">
-            <label for="building">建物名</label>
-            <input type="text" name="building" id="building" value="{{ old('building') }}">
-        </div>
-
-        {{-- お問い合わせ内容 --}}
-        <div class="form__item">
-            <label for="detail">お問い合わせ内容</label>
-            <textarea name="detail" id="detail">{{ old('detail') }}</textarea>
-        </div>
-
-        <button type="submit" class="form__btn">確認画面へ</button>
-    </form>
-</div>
-@endsection
+</html>

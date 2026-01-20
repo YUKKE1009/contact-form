@@ -5,32 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FashionablyLate</title>
+    <title>@yield('title') | FashionablyLate</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('css')
 </head>
 
 <body>
+
+    {{-- ヘッダー --}}
     <header class="header">
-        <div class="header__inner">
-            <div class="header-utilities">
-                <a class="header__logo" href="/">
-                    FashionablyLate
-                </a>
-                <nav>
-                    <ul class="header-nav">
-                        <li class="header-nav__item">
-                            <a class="header-nav__link" href="/categories">login</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <h1 class="header__logo">FashionablyLate</h1>
+
+        {{-- ナビゲーション差し込み用 --}}
+        <nav class="header__nav">
+            @yield('header-nav')
+        </nav>
     </header>
-    <main>
+
+    {{-- メインコンテンツ --}}
+    <main class="main">
         @yield('content')
     </main>
+
 </body>
 
 </html>
