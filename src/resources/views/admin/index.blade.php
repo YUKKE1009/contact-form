@@ -14,9 +14,9 @@
     <header class="header">
         <div class="header__inner">
             <h1 class="header__logo">FashionablyLate</h1>
-            <form action="/logout" method="post" class="header__form">
+            <form action="/logout" method="post" class="header__action-form">
                 @csrf
-                <button type="submit" class="header__logout-btn">logout</button>
+                <button type="submit" class="header__action-btn">logout</button>
             </form>
         </div>
     </header>

@@ -17,8 +17,8 @@
     <header class="header">
         <div class="header__inner">
             <h1 class="header__logo">FashionablyLate</h1>
-            <div class="header__link">
-                <a href="/login" class="header__link-button">login</a>
+            <div class="header__actions">
+                <a href="/login" class="header__action-btn">Login</a>
             </div>
         </div>
     </header>

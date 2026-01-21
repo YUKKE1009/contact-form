@@ -44,12 +44,12 @@ body {
 }
 
 /* 右上の切り替えボタン */
-.header__link {
+.header__actions {
     position: absolute;
     right: 20px;
 }
 
-.header__link-button {
+.header__action-btn {
     text-decoration: none;
     color: var(--color-primary);
     border: 1px solid var(--color-border);

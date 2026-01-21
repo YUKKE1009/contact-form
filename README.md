@@ -64,4 +64,4 @@ php artisan db:seed
 ・nginx 1.21.1
 
 ## ER図
-![ER図](docs/ER.png)
+![ER図](docs/ER図.png)
