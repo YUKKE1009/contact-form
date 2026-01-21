@@ -28,7 +28,7 @@
         <div class="auth-form">
             <form action="/login" method="post" novalidate>
                 @csrf
-                
+
                 {{-- メールアドレス --}}
                 <div class="form__group">
                     <label class="form__label">メールアドレス</label>

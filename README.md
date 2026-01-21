@@ -48,6 +48,10 @@ php artisan db:seed
 
 ・ユーザー登録:http://localhost/register
 
+・ログイン画面:http://localhost/login
+
+・管理画面:http://localhost/admin
+
 ・phpMyAdmin:http://localhost:8080/
 
 ## 使用技術（実行環境）
