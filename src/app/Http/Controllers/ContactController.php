@@ -94,10 +94,15 @@ class ContactController extends Controller
         // 1. 名前やメールアドレスの部分一致 (FN022-1, 2)
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
+
             $query->where(function ($q) use ($keyword) {
-                $q->where('first_name', 'like', "%{$keyword}%")
-                    ->orWhere('last_name', 'like', "%{$keyword}%")
-                    ->orWhere('email', 'like', "%{$keyword}%");
+                $q->where('last_name', 'like', "%{$keyword}%") // 姓の部分一致
+                    ->orWhere('first_name', 'like', "%{$keyword}%") // 名の部分一致
+                    ->orWhere('email', 'like', "%{$keyword}%") // メール
+                    // ここがフルネーム検索のポイント
+                    ->orWhereRaw('CONCAT(last_name, first_name) LIKE ?', ["%{$keyword}%"])
+                    // スペースが入っている場合も考慮
+                    ->orWhereRaw('CONCAT(last_name, " ", first_name) LIKE ?', ["%{$keyword}%"]);
             });
         }
 
