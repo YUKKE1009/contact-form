@@ -11,39 +11,12 @@ class ContactController extends Controller
     // 入力画面
     public function index(Request $request)
     {
-        // 1. クエリビルダーを開始
-        $query = Contact::query();
-
-        // 2. 名前検索（姓 or 名 で部分一致）
-        if ($request->filled('name')) {
-            $query->where(function ($q) use ($request) {
-                $q->where('first_name', 'like', '%' . $request->name . '%')
-                    ->orWhere('last_name', 'like', '%' . $request->name . '%');
-            });
-        }
-
-        // 3. 性別検索（1:男性 2:女性 3:その他）※「全て」以外が選ばれた時
-        if ($request->filled('gender') && $request->gender !== 'all') {
-            $query->where('gender', $request->gender);
-        }
-
-        // 4. カテゴリ検索
-        if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
-        }
-
-        // 5. 日付検索
-        if ($request->filled('date')) {
-            $query->whereDate('created_at', $request->date);
-        }
-
-        // 6. 7件ずつページネーション（検索条件を保持したまま）
-        $contacts = $query->paginate(7)->withQueryString();
-
-        // カテゴリ一覧（検索窓のプルダウン用）も取得
+        // お問い合わせフォームの「お問い合わせの種類」プルダウンに表示するデータだけ取得
         $categories = Category::all();
 
-        return view('admin.index', compact('contacts', 'categories'));
+        // お問い合わせフォームのビューを返す
+        // (resources/views/contact/contact_form.blade.php の場合)
+        return view('contact.contact_form', compact('categories'));
     }
 
     // 確認画面

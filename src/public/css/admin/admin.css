@@ -27,9 +27,10 @@ body {
 .admin-title {
     font-family: var(--font-en);
     text-align: center;
-    font-size: 26px;
+    font-size: 30px;
     color: var(--color-primary);
     margin-bottom: 40px;
+    font-weight: 400;
 }
 
 /* ----------------------------------
