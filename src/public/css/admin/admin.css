@@ -354,6 +354,6 @@ opacity: 0.8;
 }
 /* テーブルの行にマウスが乗った時に背景色を変える */
 .admin-table__row:hover {
-    background-color: #f9f9f9;
+    background-color: #eaddd3;
     transition: 0.3s;
 }

@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* 全ページで使う共通変数 */
+:root {
+    --color-primary: #8b7969;
+    --color-text: #605348;
+    --color-border: #e0dfde;
+    --font-en: 'Inika', serif;
+}
+
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-border);
+    padding: 15px 0;
+}
+
+.header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 左右を1、中央を2の比率にすることでロゴをど真ん中に固定 */
+.header__empty,
+.header__nav {
+    flex: 1;
+}
+
+.header__logo {
+    flex: 2;
+    text-align: center;
+}
+
+.header__logo h1 {
+    font-family: var(--font-en);
+    font-size: 35px;
+    color: var(--color-primary);
+    margin: 0;
+    font-weight: normal;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ログアウトボタンなどの共通スタイル */
+.header__action-btn {
+    background-color: #f4f4f4;
+    /* ここを none から薄いグレーに変更 */
+    border: 1px solid var(--color-border);
+    padding: 5px 15px;
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    /* ホバー時の動きを滑らかにする（お好みで） */
+}
+
+/* マウスを乗せた時に少し色を濃くする場合（お好みで追加してください） */
+.header__action-btn:hover {
+    background-color: #eaddd3;
+}
