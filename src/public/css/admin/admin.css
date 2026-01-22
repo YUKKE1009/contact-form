@@ -99,6 +99,11 @@ body {
     height: 45px;
 }
 
+.search-form__btn-search:hover,
+.search-form__btn-reset:hover {
+    background-color: #eaddd3;
+}
+
 /* ----------------------------------
  * ツールバー & ページネーション
  * ---------------------------------- */
@@ -122,7 +127,7 @@ body {
 }
 
 .btn-export:hover {
-    opacity: 0.8;
+    background-color: #eaddd3;
 }
 
 .pagination {
