@@ -4,13 +4,11 @@
 .main-content {
     max-width: 1000px;
     margin: 40px auto 0;
-    /* ヘッダーとの隙間を確保 */
     padding: 0 20px 80px;
 }
 
 .page-title {
     font-family: var(--font-en);
-    /* 共通CSSのPlayfairを利用 */
     text-align: center;
     font-size: 30px;
     color: var(--color-primary);
@@ -24,13 +22,17 @@
     max-width: 800px;
     margin: 0 auto;
     border-collapse: collapse;
+    border: 1px solid var(--color-border);
 }
 
 .confirm-table__row {
     border-bottom: 1px solid var(--color-border);
 }
 
-/* 左側のヘッダー列（ブラウン背景・白文字） */
+.confirm-table__row:last-child {
+    border-bottom: none;
+}
+
 .confirm-table__header {
     width: 30%;
     padding: 25px 30px;
@@ -39,28 +41,26 @@
     text-align: left;
     font-weight: 500;
     font-size: 15px;
+    border-right: 1px solid var(--color-border);
 }
 
-/* 右側の入力内容列 */
 .confirm-table__text {
     width: 70%;
     padding: 25px 30px;
     background-color: #fff;
     font-size: 15px;
-    color: var(--color-text);
+    color: #8b7969;
 }
 
 /* --- 3. ボタンエリア --- */
 .form__button {
     margin-top: 60px;
-    /* テーブルとの間隔を少し広めに */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
 }
 
-/* 送信ボタン：茶色の背景 */
 .form__button-submit {
     background-color: var(--color-primary);
     color: #fff;
@@ -72,7 +72,6 @@
     transition: opacity 0.3s;
 }
 
-/* 修正ボタン：背景なし・下線 */
 .form__button-fix {
     background: none;
     border: none;
@@ -87,7 +86,7 @@
     opacity: 0.8;
 }
 
-/* --- 4. レスポンシブ (スマホ対応) --- */
+/* --- 4. レスポンシブ --- */
 @media screen and (max-width: 768px) {
     .confirm-table__header {
         width: 40%;
@@ -101,7 +100,6 @@
 
     .form__button {
         flex-direction: column;
-        /* スマホではボタンを縦並びに */
         gap: 20px;
     }
 }
