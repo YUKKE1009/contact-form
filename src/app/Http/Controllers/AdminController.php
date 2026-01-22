@@ -50,7 +50,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         Contact::find($id)->delete();
-        return redirect('/admin');
+        return redirect()->back();
     }
 
     public function export(Request $request)
