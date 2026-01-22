@@ -95,7 +95,9 @@ class ContactController extends Controller
         }
 
         // 7件ごとのページネーション + 検索条件の保持 (FN021)
-        $contacts = $query->with('category')->paginate(7)->withQueryString();
+        $contacts = $query->with('category')->paginate(7);
+        $contacts->appends(request()->query());
+
         $categories = Category::all();
 
         return view('admin.index', compact('contacts', 'categories'));
