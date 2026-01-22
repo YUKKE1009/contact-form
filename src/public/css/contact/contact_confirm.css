@@ -1,61 +1,24 @@
 @charset "utf-8";
 
-/* --- 1. 変数定義 --- */
-:root {
-    --color-primary: #8b7969;
-    /* メインのブラウン */
-    --color-text: #605348;
-    /* テキスト色 */
-    --color-bg: #ffffff;
-    /* 背景色 */
-    --color-border: #e0dfde;
-    /* 境界線 */
-    --font-en: 'Playfair Display', serif;
-    --font-jp: 'Noto Sans JP', sans-serif;
-}
-
-/* --- 2. 基本設定 --- */
-body {
-    font-family: var(--font-jp);
-    color: var(--color-text);
-    line-height: 1.6;
-    background-color: var(--color-bg);
-}
-
-/* --- 3. ヘッダー --- */
-.header {
-    border-bottom: 1px solid var(--color-border);
-    padding: 25px 0;
-}
-
-.header__inner {
-    text-align: center;
-}
-
-.header__logo {
-    font-family: var(--font-en);
-    font-size: 32px;
-    color: var(--color-primary);
-    font-weight: 400;
-}
-
-/* --- 4. メインレイアウト --- */
+/* --- 1. メインレイアウト --- */
 .main-content {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 40px auto 0;
+    /* ヘッダーとの隙間を確保 */
     padding: 0 20px 80px;
 }
 
 .page-title {
     font-family: var(--font-en);
+    /* 共通CSSのPlayfairを利用 */
     text-align: center;
-    font-size: 26px;
+    font-size: 30px;
     color: var(--color-primary);
     margin: 60px 0;
     font-weight: 400;
 }
 
-/* --- 5. 確認テーブル --- */
+/* --- 2. 確認テーブル --- */
 .confirm-table {
     width: 100%;
     max-width: 800px;
@@ -67,7 +30,7 @@ body {
     border-bottom: 1px solid var(--color-border);
 }
 
-/* 左側のヘッダー列 */
+/* 左側のヘッダー列（ブラウン背景・白文字） */
 .confirm-table__header {
     width: 30%;
     padding: 25px 30px;
@@ -84,58 +47,47 @@ body {
     padding: 25px 30px;
     background-color: #fff;
     font-size: 15px;
+    color: var(--color-text);
 }
 
-/* --- 6. ボタンエリア --- */
-/* ボタンの親要素：ここで横並びを制御 */
+/* --- 3. ボタンエリア --- */
 .form__button {
-    margin-top: 40px;
+    margin-top: 60px;
+    /* テーブルとの間隔を少し広めに */
     display: flex;
-    /* 横並びにする */
     justify-content: center;
-    /* 中央に寄せる */
     align-items: center;
-    /* 上下の高さを揃える */
     gap: 40px;
-    /* ボタン同士の間の距離 */
 }
 
 /* 送信ボタン：茶色の背景 */
 .form__button-submit {
-    background-color: #8b7969;
-    /* スクショの茶色 */
+    background-color: var(--color-primary);
     color: #fff;
     border: none;
     padding: 10px 40px;
-    /* ボタンの大きさ調整 */
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: opacity 0.3s;
 }
 
-.form__button-submit:hover {
-    opacity: 0.8;
-}
-
-/* 修正ボタン：背景なしの文字だけ */
+/* 修正ボタン：背景なし・下線 */
 .form__button-fix {
     background: none;
     border: none;
-    color: #8b7969;
-    /* 文字色を茶色にする */
+    color: var(--color-primary);
     text-decoration: underline;
-    /* 下線をつける */
     font-size: 16px;
     cursor: pointer;
     padding: 0;
-    /* 余計な余白を消す */
 }
 
-.form__button-fix:hover {
+.form__button button:hover {
     opacity: 0.8;
 }
 
-/* --- 7. レスポンシブ --- */
+/* --- 4. レスポンシブ (スマホ対応) --- */
 @media screen and (max-width: 768px) {
     .confirm-table__header {
         width: 40%;
@@ -145,5 +97,11 @@ body {
     .confirm-table__text {
         width: 60%;
         padding: 20px 15px;
+    }
+
+    .form__button {
+        flex-direction: column;
+        /* スマホではボタンを縦並びに */
+        gap: 20px;
     }
 }
