@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
 | お問い合わせフォーム（一般）
 |--------------------------------------------------------------------------
+| 一般ユーザーが利用する入力・確認・完了のルートです。
 */
 
 Route::get('/', [ContactController::class, 'index'])->name('contact.index');
@@ -18,16 +20,17 @@ Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thank
 |--------------------------------------------------------------------------
 | 管理画面（要ログイン）
 |--------------------------------------------------------------------------
+| 管理者のみがアクセスできる一覧・検索・削除・エクスポートのルートです。
+| すべて AdminController に集約することで、検索結果とエクスポート内容を一致させます。
 */
 Route::middleware(['auth'])->group(function () {
-    // PG04 & PG05: 一覧表示と検索（同じメソッドで処理）
-    Route::get('/admin', [ContactController::class, 'admin'])->name('admin.index');
-    Route::get('/admin/search', [ContactController::class, 'admin'])->name('admin.search');
+    // 一覧表示および検索結果の表示
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/search', [AdminController::class, 'index'])->name('admin.search');
 
-    // PG07: 削除（詳細モーダルからの送信先）
-    // JavaScriptで設定した /admin/delete/ID に対応
-    Route::delete('/admin/delete/{id}', [ContactController::class, 'destroy'])->name('admin.destroy');
+    // 詳細モーダルからの削除機能
+    Route::delete('/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.delete');
 
-    // PG11: エクスポート
-    Route::get('/export', [ContactController::class, 'export'])->name('admin.export');
+    // 検索結果に基づいたCSVエクスポート
+    Route::get('/admin/export', [AdminController::class, 'export'])->name('admin.export');
 });
