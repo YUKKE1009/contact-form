@@ -89,8 +89,13 @@ body {
     background-color: var(--color-bg-light);
     padding: 10px;
     border: 1px solid var(--color-border);
-    color: #ccc;
+    color: var(--color-text);
+    /* 入力文字は濃く */
     font-size: 14px;
+}
+
+.search-form__input::placeholder {
+    color: #ccc;
 }
 
 .search-form__input--text {
@@ -269,4 +274,86 @@ body {
 /* ホバーした時 */
 .pagination a:hover {
 opacity: 0.8;
+}
+
+/* モーダルの背景（画面全体を暗くする） */
+.modal {
+    display: none;
+    /* 初期状態は非表示 */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 黒透明 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダルの白い中身 */
+.modal__content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 50px 40px 40px;
+    position: relative;
+    border-radius: 2px;
+}
+
+/* 右上の「×」ボタン */
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダル内のテーブル */
+.modal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.modal-table th {
+    width: 30%;
+    text-align: left;
+    padding: 15px 0;
+    color: var(--color-primary);
+    vertical-align: top;
+}
+
+.modal-table td {
+    padding: 15px 0;
+    color: var(--color-text);
+}
+
+/* 削除ボタン（赤色） */
+.btn-delete {
+    display: block;
+    margin: 0 auto;
+    background-color: #bf4320;
+    /* UI画像のレンガ色 */
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 14px;
+}
+/* テーブルの行にマウスが乗った時に背景色を変える */
+.admin-table__row:hover {
+    background-color: #f9f9f9;
+    transition: 0.3s;
 }
