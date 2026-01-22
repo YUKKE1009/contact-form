@@ -24,10 +24,9 @@
         </div>
     </header>
 
-    <main class="main">
-        <div class="contact-form">
-            <h2 class="page-title">Contact</h2>
-
+    <main class="main-content">
+        <h2 class="page-title">Contact</h2>
+        <div class="form-container">
             <form action="/confirm" method="post" class="form" novalidate>
                 @csrf
 

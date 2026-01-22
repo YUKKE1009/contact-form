@@ -22,10 +22,9 @@
         </div>
     </header>
 
-    <main class="main">
-        <div class="confirm-content">
-            <h2 class="page-title">Confirm</h2>
-
+    <main class="main-content">
+        <h2 class="page-title">Confirm</h2>
+        <div class="form-container">
             <form action="/thanks" method="post" class="form">
                 @csrf
                 <table class="confirm-table">

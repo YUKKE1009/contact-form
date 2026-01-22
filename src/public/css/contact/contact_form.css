@@ -54,7 +54,7 @@ body {
 }
 
 /* --- 4. メインレイアウト --- */
-.main {
+.main-content {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px 80px;
