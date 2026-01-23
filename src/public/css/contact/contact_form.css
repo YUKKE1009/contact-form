@@ -30,12 +30,10 @@ body {
 .main-content {
     max-width: 1000px;
     margin: 60px auto 0;
-    /* 共通ヘッダーとの余白を確保 */
     padding: 0 20px 80px;
 }
 
 .page-title {
-    /* 共通CSSは Inika ですが、ここは指定通り Playfair にしたい場合のみ記述 */
     font-family: 'Playfair Display', serif;
     text-align: center;
     font-size: 30px;
@@ -119,11 +117,8 @@ textarea::placeholder {
 .form__input--name {
     display: flex;
     gap: 25px;
-    /* 姓と名の間の余白 */
     align-items: flex-start;
-    /* エラーが出ても上揃え */
     width: 100%;
-    /* 横幅いっぱいに広げる */
 }
 
 /* 姓・名それぞれの入力欄とエラーをまとめる箱 */
