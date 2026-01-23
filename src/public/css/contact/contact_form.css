@@ -81,8 +81,6 @@ body {
     color: #ae5454;
     font-size: 13px;
     margin-top: 5px;
-    font-weight: bold;
-
 }
 
 /* --- 5. 入力パーツ --- */
@@ -121,10 +119,23 @@ textarea::placeholder {
 .form__input--name {
     display: flex;
     gap: 25px;
+    /* 姓と名の間の余白 */
+    align-items: flex-start;
+    /* エラーが出ても上揃え */
+    width: 100%;
+    /* 横幅いっぱいに広げる */
 }
 
-.form__input--name input {
+/* 姓・名それぞれの入力欄とエラーをまとめる箱 */
+.name-input-group {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+}
+
+/* 入力欄自体の横幅を箱いっぱいに広げる */
+.form__input--name input {
+    width: 100%;
 }
 
 .form__input--radio {
@@ -148,13 +159,24 @@ textarea::placeholder {
 
 .form__input--tel {
     display: flex;
-    align-items: center;
     gap: 12px;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.form__input--tel input {
+.tel-input-group {
     flex: 1;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ハイフンの位置調整 */
+.hyphen {
+    color: var(--color-text);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin: 0;
 }
 
 .hyphen {

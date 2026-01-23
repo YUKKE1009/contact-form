@@ -48,16 +48,20 @@ class ContactRequest extends FormRequest
             'email.email'          => 'メールアドレスはメール形式で入力してください',
 
             // 4. 電話番号 (各ボックスに対して同じメッセージを適用)
-            // tel1 だけに代表してメッセージを設定する
-            'tel1.required' => '電話番号を入力してください',
-            'tel2.required' => '電話番号を入力してください',
-            'tel3.required' => '電話番号を入力してください',
-            'tel1.numeric'  => '電話番号は半角数字で入力してください',
-            'tel2.numeric'  => '電話番号は半角数字で入力してください',
-            'tel3.numeric'  => '電話番号は半角数字で入力してください',
-            'tel1.digits_between' => '電話番号は5桁以内で入力してください',
-            'tel2.digits_between' => '電話番号は5桁以内で入力してください',
-            'tel3.digits_between' => '電話番号は5桁以内で入力してください',
+            // tel1
+            'tel1.required'       => '電話番号を入力してください',
+            'tel1.numeric'        => '電話番号は半角英数字で入力してください',
+            'tel1.digits_between' => '電話番号は5桁まで数字で入力してください',
+
+            // tel2
+            'tel2.required'       => '電話番号を入力してください',
+            'tel2.numeric'        => '電話番号は半角英数字で入力してください',
+            'tel2.digits_between' => '電話番号は5桁まで数字で入力してください',
+
+            // tel3
+            'tel3.required'       => '電話番号を入力してください',
+            'tel3.numeric'        => '電話番号は半角英数字で入力してください',
+            'tel3.digits_between' => '電話番号は5桁まで数字で入力してください',
 
             // 5. 住所
             'address.required'     => '住所を入力してください',

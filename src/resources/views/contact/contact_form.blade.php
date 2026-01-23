@@ -19,16 +19,22 @@
                 </div>
                 <div class="form__input">
                     <div class="form__input--name">
-                        <input type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
-                        <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
+                        {{-- 姓のグループ --}}
+                        <div class="name-input-group">
+                            <input type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
+                            @error('last_name')
+                            <p class="form__error-message">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        {{-- 名のグループ --}}
+                        <div class="name-input-group">
+                            <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
+                            @error('first_name')
+                            <p class="form__error-message">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
-                    {{-- 個別エラー表示 --}}
-                    @error('last_name')
-                    <p class="form__error-message">{{ $message }}</p>
-                    @enderror
-                    @error('first_name')
-                    <p class="form__error-message">{{ $message }}</p>
-                    @enderror
                 </div>
             </div>
 
@@ -72,18 +78,34 @@
                 </div>
                 <div class="form__input">
                     <div class="form__input--tel">
-                        <input type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}">
+                        {{-- 1つ目の箱 --}}
+                        <div class="tel-input-group">
+                            <input type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}">
+                            @error('tel1')
+                            <p class="form__error-message">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <span class="hyphen">-</span>
-                        <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}">
+
+                        {{-- 2つ目の箱 --}}
+                        <div class="tel-input-group">
+                            <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}">
+                            @error('tel2')
+                            <p class="form__error-message">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <span class="hyphen">-</span>
-                        <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
+
+                        {{-- 3つ目の箱 --}}
+                        <div class="tel-input-group">
+                            <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
+                            @error('tel3')
+                            <p class="form__error-message">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
-                    {{-- 電話番号は3つのうち最初のエラーを表示 --}}
-                    @if($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
-                    <p class="form__error-message">
-                        {{ $errors->first('tel1') ?: ($errors->first('tel2') ?: $errors->first('tel3')) }}
-                    </p>
-                    @endif
                 </div>
             </div>
 
