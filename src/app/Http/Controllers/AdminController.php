@@ -26,8 +26,10 @@ class AdminController extends Controller
                     ->orWhereRaw('CONCAT(last_name, " ", first_name) LIKE ?', ["%{$keyword}%"]);
             });
         }
-        if ($request->filled('gender')) {
-            $query->where('gender', $request->gender);
+        $gender = $request->gender;
+
+        if ($gender && $gender !== 'all') {
+            $query->where('gender', $gender);
         }
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
